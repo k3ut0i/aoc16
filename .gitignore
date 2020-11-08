@@ -1,0 +1,10 @@
+/inputs/
+*.\~
+src/Mercury
+*.err
+*.mh
+*.o
+*.c_date
+*.c
+*.d
+/t/

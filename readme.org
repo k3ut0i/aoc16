@@ -1,0 +1,2 @@
+* Late Practice for Advent of Code 2016
+Solving these problems for practicing mercury language.
