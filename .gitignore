@@ -9,3 +9,5 @@ src/Mercury
 *.d
 /t/
 /src/test_day1
+/src/test_day2
+/src/test_day3

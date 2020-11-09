@@ -3,3 +3,21 @@
 ** Day1
 - I am having a problem dealing with _semidet_ predicates in _main_ which is supposed to be _det_.
 - src_prolog{X mod 4} is supposed to be always 0, 1, 2, or 3. So by destructuring on it I should be able to make a deterministic predicate. But I am not able to do so. How should I deal with this? I do not actually need _mod_ function, but it is a convenient way to express a circular movement. If I rolled my own function then I could have made it deterministic. 
+#+begin_src sh :exports both :results value verbatim
+  cd /home/keutoi/projects/aoc16/src/
+  ./test_day1
+#+end_src
+
+#+RESULTS:
+: End point is: 91 135
+: First repeat point is: 75 - -4
+
+** Day2
+   #+begin_src sh :exports both :results value verbatim
+     cd /home/keutoi/projects/aoc16/src/
+     ./test_day2
+   #+end_src
+
+   #+RESULTS:
+   : Part1 Pass: [5, 6, 8, 5, 5]
+   : Part2 Co-ordinates: [0 - 1, 0 - -1, 1 - 1, -1 - -1, 0 - 0]
