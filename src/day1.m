@@ -18,10 +18,12 @@
 :- pred calculate_end(list(instr)::in, pair(int, int)::out) is semidet.
 :- pred calculate_trail(list(instr)::in, list(pos)::out) is semidet.
 :- pred find_visited(list(pos)::in, pair(int, int)::out) is semidet.
+:- pred flesh_trail(list(pos)::in, list(pair(int))::out) is det.
+:- pred find_first_dup(list(T)::in, T::out) is semidet.
 
 :- implementation.
 :- import_module char, int, enum.
-
+:- import_module int_utils.
 
 :- pred parse_direction(char::in, direction::out) is semidet.
 parse_direction('R', right).
@@ -81,18 +83,38 @@ calculate_end(Ds, X - Y) :-
 :- pred calculate_trail(pos::in, list(instr)::in,
     list(pos)::in, list(pos)::out) is semidet.
 calculate_trail(Ds, Ls) :- calculate_trail(pos(north, 0 - 0), Ds, [], Ls).
-calculate_trail(_, [], Ls, Ls).
+calculate_trail(P, [], Acc, Ls) :- reverse([P | Acc], Ls).
 calculate_trail(P, [I | Is], Acc, Ls) :-
-    step(I, P, PN), calculate_trail(PN, Is, [PN | Acc], Ls).
+    step(I, P, PN), calculate_trail(PN, Is, [P | Acc], Ls).
 
-:- pred find_first_dup(list(T)::in, T::out) is semidet.
+
 find_first_dup([X | Xs], Y) :-
     member(X, Xs) -> Y = X;
     find_first_dup(Xs, Y).
 
+:- pred create_pair(T1::in, T2::in, pair(T1, T2)::out) is det.
+create_pair(X1, X2, X1 - X2).
+
+:- pred flesh_points(pos::in, pos::in, list(pair(int))::out) is det.
+flesh_points(pos(_, X1 - Y1), pos(D, X2 - Y2), Ts) :-
+    (
+	(D = north; D = south), X1 = X, % X1 = X2
+	between_integers(Y1, Y2, Ys),
+	map(create_pair(X), Ys, Ts)
+    ;
+	(D = east; D = west), Y1 = Y,	
+	between_integers(X1, X2, Xs),
+	map(pred(X::in, P::out) is det :- create_pair(X, Y, P), Xs, Ts)
+    ).
+
+
+flesh_trail([], []).
+flesh_trail([_], []).
+flesh_trail([P1, P2 | Ps], Ts ++ Tss) :-
+    flesh_points(P1, P2, Ts), flesh_trail([P2 | Ps], Tss).
+
 :- pred ignore_dir(pos::in, pair(int, int)::out) is det.
 ignore_dir(pos(_, Pair), Pair).
-
 
 find_visited(Trail, X - Y) :-
     map(ignore_dir, Trail, Ts),

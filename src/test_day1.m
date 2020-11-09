@@ -40,16 +40,20 @@ part2(!IO) :-
     (
 	calculate_trail(Ls, Ts)
 	->
+	flesh_trail(Ts, Tss1),
+	remove_adjacent_dups(Tss1, Tss),
+%	write_list(Tss, "\n", print, !IO)
 	(
-	    find_visited(Ts, X - Y)
+	    find_first_dup(Tss, P)
 	    ->
-	    write_int(X, !IO), write_string("-", !IO),
-	    write_int(Y, !IO), nl(!IO)
+	    print(P, !IO), nl(!IO)
 	;
-	    write_string("Failed repeat", !IO)
+	    write_string("Failed finding repeat point", !IO)
 	)
     ;
 	write_string("Failed Trail print", !IO)
     ).
 
-main(!IO) :- part2(!IO).
+main(!IO) :-
+    write_string("End point is: ", !IO), part1(!IO),
+    write_string("First repeat point is: ", !IO), part2(!IO).

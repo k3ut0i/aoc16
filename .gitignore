@@ -8,3 +8,4 @@ src/Mercury
 *.c
 *.d
 /t/
+/src/test_day1
