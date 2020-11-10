@@ -6,4 +6,4 @@
 :- implementation.
 :- import_module day3.
 
-main(!IO) :- part1(!IO).
+main(!IO) :- part2(!IO).
