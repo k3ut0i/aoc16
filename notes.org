@@ -43,3 +43,28 @@ I quite misunderstood part2 of the problem. I thought that all possible triangle
    : 185371
    : entry(["northpole", "object", "storage"], 984, "sixve")
 Got stuck at a comparison function. There was a type ambiguity error which I could not decipher. 
+
+** Day5
+Skipped MD5. I don't know if the question assumes some existing MD5 infrastructure in the language of you choice. Do I actually need to implement some of it?
+
+** Day6
+Getting more familiar with higher order functions. I used a few to define comparison functions for pairs in [[file:src/assoc_utils.m][src/assoc_list.m]] to work with sorting and min-maxing association lists.
+
+#+begin_src sh :exports results :results value verbatim
+  cd /home/keutoi/projects/aoc16/src/
+  ./test_day6
+#+end_src
+
+#+RESULTS:
+: Part1: 'tzstqsua', Part2: 'myregdnr'
+
+** Day7
+I have used non-determinate predicates and non-trivial backtracking for the first time in mercury. ~tls_ip~ predicate uses it find a matching pattern in from two different list of strings. It feels wonderful to have a tool just right for the job.
+
+#+begin_src sh :exports results :results value verbatim
+  cd /home/keutoi/projects/aoc16/src/
+  ./test_day7
+#+end_src
+
+#+RESULTS:
+: TLS IP: 110, SSL IP: 242
