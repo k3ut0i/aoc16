@@ -10,8 +10,8 @@
 
 :- pred empty_data(assoc_list(char, int)::out) is det.
 empty_data(D) :-
-    between_integers(97, 122, Ci), %% XXX between_integers is buggy
-    map(det_from_int, remove_dups(Ci), Cs), %% Why am I getting dups?
+    between_integers(97, 122, Ci),
+    map(det_from_int, Ci, Cs),
     map(pred(C::in, pair(C, 0)::out) is det, Cs, D).
 
 :- pred process_char(char::in, assoc_list(char, int)::in,

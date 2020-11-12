@@ -68,3 +68,19 @@ I have used non-determinate predicates and non-trivial backtracking for the firs
 
 #+RESULTS:
 : TLS IP: 110, SSL IP: 242
+
+** Day8
+When trying to represent an array keep the index order and the axis of your model fixed from the start. My code is quite chaotic due to this confusion.
+#+begin_src sh :exports results :results value verbatim
+  cd /home/keutoi/projects/aoc16/src/
+  ./test_day8
+#+end_src
+
+#+RESULTS:
+: Number of lit pixels: 128
+: ####..##...##..###...##..###..#..#.#...#.##...##..
+: #....#..#.#..#.#..#.#..#.#..#.#..#.#...##..#.#..#.
+: ###..#..#.#..#.#..#.#....#..#.####..#.#.#..#.#..#.
+: #....#..#.####.###..#.##.###..#..#...#..####.#..#.
+: #....#..#.#..#.#.#..#..#.#....#..#...#..#..#.#..#.
+: ####..##..#..#.#..#..###.#....#..#...#..#..#..##..

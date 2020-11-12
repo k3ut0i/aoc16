@@ -14,3 +14,7 @@ src/Mercury
 /src/test_day4
 /src/test_day6
 /src/test_day7
+/src/test_day8
+/src/test_int_utils
+/src/test_list_utils
+/src/test_array2d_utils

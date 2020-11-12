@@ -12,7 +12,7 @@ between_integers(X, Y, [X | Is]) :-
     C = (<), X1 = X + 1, between_integers(X1, Y, Is)
 ;
 
-    C = (=), Is = [X]
+    C = (=), Is = [] % X is already in the result list
 ;
     C = (>), X1 = X - 1, between_integers(X1, Y, Is)
 ).

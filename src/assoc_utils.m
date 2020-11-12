@@ -15,7 +15,6 @@
 :- implementation.
 :- import_module list.
 
-
 compare_value(CV, CP) :-
     CP = (pred(P1::in , P2::in, C::out) is det :- call(CV, snd(P1), snd(P2), C)).
 
@@ -55,4 +54,3 @@ lt_kv(CV, K1 - V1, K2 - V2, K3 - V3) :-
 min_by_value(CV, [A | AL], Min) :-
     foldl((pred(K::in, V::in, P1::in, P2::out) is det
 	:- lt_kv(CV, pair(K,V), P1, P2)), AL, A, Min).
-    
