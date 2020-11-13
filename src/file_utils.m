@@ -16,7 +16,7 @@ read_line_from_file(File, StringRes, !IO) :-
 	OpenResult = ok(Stream),
 	read_line_as_string(Stream, ReadResult, !IO),
 	(
-	    ReadResult = ok(String) -> StringRes = yes(String);
+	    ReadResult = ok(String) -> StringRes = yes(strip(String));
 	    StringRes = no
 	)
     ;

@@ -84,3 +84,7 @@ When trying to represent an array keep the index order and the axis of your mode
 : #....#..#.####.###..#.##.###..#..#...#..####.#..#.
 : #....#..#.#..#.#.#..#..#.#....#..#...#..#..#.#..#.
 : ####..##..#..#.#..#..###.#....#..#...#..#..#..##..
+
+** Day9
+We have tuple types. Like prolog I thought they did not exist in mercury and kept dealing with the pair library. I could've just used tuple lists for most of my assoc_list uses. 
+I have ignored DCG when working with prolog previously. But some how parsing this problem made me think this problem is especially suited to work with DCG. So first I tried with prolog and succeeded, but my solution is very hairy. I will translate this into mercury and get familiar with working DCG in mercury.
