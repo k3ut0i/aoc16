@@ -11,7 +11,10 @@ elem(s(S)) --> plain(Ss), {string_codes(S, Ss)}.
 take(0, []) --> [].
 take(N, [X | Xs]) -->
     {N>0, plus(N1, 1, N)}, [X], take(N1, Xs).
-    
+
+%% For part2 of the problem, I should use semicontext notation to
+%% push back S into the incoming stream. Will do this in mercury
+%% solution after I get more familiar with it.
 marker(S) -->
     [0'(], digits(N1C), [0'x], digits(N2C), [0')],
     {number_codes(N1, N1C), number_codes(N2, N2C)},

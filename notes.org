@@ -45,8 +45,19 @@ I quite misunderstood part2 of the problem. I thought that all possible triangle
 Got stuck at a comparison function. There was a type ambiguity error which I could not decipher. 
 
 ** Day5
-Skipped MD5. I don't know if the question assumes some existing MD5 infrastructure in the language of you choice. Do I actually need to implement some of it?
+I am currently trying it out in prolog to see if brute force implementation works.
+#+begin_src prolog :exports both :results output verbatim
+  :- consult("src/day5.pl").
+  :- get_n_numbers(8, ugkcyxxp, Ans1),
+     get_eight_digits(ugkcyxxp, T), keysort(T, TSorted),
+     pairs_values(TSorted, Ans2),
+     format('~w~n ~w~n', [Ans1, Ans2]).
+#+end_src
 
+#+RESULTS:
+: [d,4,c,d,2,e,e,1]
+:  [f,2,c,7,3,0,e,5]
+For the second part, at first I worked the digits in order manually as I forgot about ~keysort/2~.
 ** Day6
 Getting more familiar with higher order functions. I used a few to define comparison functions for pairs in [[file:src/assoc_utils.m][src/assoc_list.m]] to work with sorting and min-maxing association lists.
 
@@ -87,4 +98,4 @@ When trying to represent an array keep the index order and the axis of your mode
 
 ** Day9
 We have tuple types. Like prolog I thought they did not exist in mercury and kept dealing with the pair library. I could've just used tuple lists for most of my assoc_list uses. 
-I have ignored DCG when working with prolog previously. But some how parsing this problem made me think this problem is especially suited to work with DCG. So first I tried with prolog and succeeded, but my solution is very hairy. I will translate this into mercury and get familiar with working DCG in mercury.
+I have ignored DCG when working with prolog previously. But some how parsing this problem made me think this problem is especially suited to work with DCG. So first I tried with prolog and succeeded, but my [["src/context_parsing.pl"][solution]] is very hairy. I will translate this into mercury and get familiar with working DCG in mercury.
