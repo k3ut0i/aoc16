@@ -1,0 +1,14 @@
+* Lua implementation notes for AOC16
+  I tried learning *Lua* before, but lost interest after a while. This is my trial to solve /aoc16/ in parallel with *mercury*. It is a part of my ongoing attempt to contrast different programming paradigms. logical-functional-mercury with imperative-lua.
+
+** Day 01
+   - Metatables for printing, comparing points. Also used it to avoid a boundary condition at comparing the first two-lines on the trail. It somehow worked.
+   - rudimentary tests using builtin ~assert~ and a custom ~__eq~.
+   #+begin_src lua
+     require('day01')
+     print(run_instructions(parse_file('inputs/day1')))
+   #+end_src
+   Which gives
+   #+begin_example
+   north-(91,135)	(75,-4)	table: 0x55c3e32c6640
+   #+end_example
