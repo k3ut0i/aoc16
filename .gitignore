@@ -18,3 +18,8 @@ src/Mercury
 /src/test_int_utils
 /src/test_list_utils
 /src/test_array2d_utils
+/src/*.date
+/src/*.int
+/src/*.int2
+*.so
+/lua/a.out

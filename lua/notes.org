@@ -12,3 +12,6 @@
    #+begin_example
    north-(91,135)	(75,-4)	table: 0x55c3e32c6640
    #+end_example
+
+** Day 02
+   - Some [[file:util.lua][utilities]], and higher-order functions.

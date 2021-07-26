@@ -90,10 +90,14 @@ function data_2(x, y)
       return x + 3
    elseif y == 0 then
       return x + 7
-   elseif y == -1 then
-      return x + 11
+   elseif y == -1 and x == -1 then
+      return 'A'
+   elseif y == -1 and x == 0 then
+      return 'B'
+   elseif y == -1 and x == 1 then
+      return 'C'
    elseif y == -2 and x == 0 then
-      return 13
+      return 'D'
    else
       error "Unknown data point"
    end
@@ -118,7 +122,7 @@ function day02.part1 (is)
 end
 
 function day02.part2 (is)
-   rs = {} ; p = {x = 0, y = 0}
+   rs = {} ; p = {x = -2, y = 0}
    for _, i in pairs(is) do
       p, r = find_code(p.x, p.y, constraint_2, data_2, i)
       table.insert(rs, r)

@@ -8,7 +8,9 @@ ex_in = {}
 for _, i in pairs(ex_str) do
    table.insert(ex_in, d.parse_line(i))
 end
-u.print_array(d.part1(ex_in))
+
+assert(u.array_mt.__eq(d.part1(ex_in), {1, 9, 8, 5}))
+assert(u.array_mt.__eq(d.part2(ex_in), {5, 'D', 'B', 3}))
 
 -- part1
 -- u.print_array(d.part1(d.parse_file('inputs/day2')))

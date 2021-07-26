@@ -27,6 +27,12 @@ function util.print_array(a)
    end
 end
 
+function util.print_pairs(a)
+      for i, e in pairs(a) do
+      print(i, e)
+   end
+end
+
 function util.between(a, x, b)
    return a <= x and x <= b
 end
@@ -35,6 +41,14 @@ function util.map(f, t)
    r = {}
    for _, e in pairs(t) do
       table.insert(r, f(e))
+   end
+   return r
+end
+
+function util.count_array(f, t)
+   r = 0
+   for _, e in pairs(t) do
+      if f(e) then r = r + 1 end
    end
    return r
 end
