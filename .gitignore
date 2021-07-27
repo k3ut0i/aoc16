@@ -5,7 +5,7 @@ src/Mercury
 *.mh
 *.o
 *.c_date
-*.c
+src/*.c
 *.d
 /t/
 /src/test_day1
@@ -23,3 +23,4 @@ src/Mercury
 /src/*.int2
 *.so
 /lua/a.out
+/scm/md5_test
