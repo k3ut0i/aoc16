@@ -42,6 +42,7 @@ uncompress(S, U) :-
     phrase(compressed(X), Cs), cleanup(X, U).
 
 :- begin_tests(context_p).
+
 test("advent") :- uncompress("ADVENT", "ADVENT"), !.
 test("abc") :- uncompress("A(1x5)BC", "ABBBBBC"), !.
 test("xyz") :- uncompress("(3x3)XYZ", "XYZXYZXYZ"), !.
@@ -55,4 +56,5 @@ test(final) :-
     cleanup(X, Y), string_length(Y, L),
     writeln(L),
     close(Stream).
+
 :- end_tests(context_p).
