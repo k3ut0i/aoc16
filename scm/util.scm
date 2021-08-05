@@ -1,4 +1,4 @@
-(define-module (aoc16 util)
+(define-module (util)
   #:export (read-lines
 	    unsplice))
 
